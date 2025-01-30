@@ -23,12 +23,13 @@ def main():
             if event.type == pygame.QUIT:
                 running = 0
                 return
+        dt = fpsClock.tick(60) / 1000
         screen.fill(COLOR_BLACK)
+        player_one.update(dt)
         player_one.draw(screen)
         
         pygame.display.flip()
         #we get the deltha time in miliseconds.
-        dt = fpsClock.tick(60) / 1000
         
     pygame.quit()
 
