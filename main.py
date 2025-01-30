@@ -8,6 +8,8 @@ from constants import *
 def main():
     print (f"Starting asteroids!")
     pygame.init()
+    fpsClock = pygame.time.Clock()
+    dt = 0
     print (f"Screen width: {SCREEN_WIDTH}")
     print (f"Screen height: {SCREEN_HEIGHT}")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -19,6 +21,8 @@ def main():
                 return
         screen.fill((0, 0, 0))
         pygame.display.flip()
+        #we get the deltha time in miliseconds.
+        dt = fpsClock.tick(60) / 1000
     pygame.quit()
 
 
