@@ -44,12 +44,10 @@ def main():
                 print ("Game over!")
                 running = False
                 break
-        for asteroid in asteroids:
             for shoot in shoots:
                 if asteroid.collide(shoot) :
                     asteroid.kill()
                     shoot.kill()
-                    break
             
         screen.fill(COLOR_BLACK)
         
