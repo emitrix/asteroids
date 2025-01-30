@@ -3,7 +3,6 @@ from circleshape import CircleShape
 from constants import *
 
 
-# Player class
 class Shoot(CircleShape):
     def __init__(self, x, y):
         # Call the base class constructor
