@@ -15,8 +15,11 @@ def main():
     print (f"Screen height: {SCREEN_HEIGHT}")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     
-    player_one = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
+    updatable  = pygame.sprite.Group()
+    drawable   = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
     
+    player_one = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
     running = True
     while running:
         for event in pygame.event.get():
@@ -25,11 +28,13 @@ def main():
                 return
         dt = fpsClock.tick(60) / 1000
         screen.fill(COLOR_BLACK)
-        player_one.update(dt)
-        player_one.draw(screen)
+        
+        for thing in updatable:
+            thing.update(dt)
+        for thing in drawable:
+            thing.draw(screen)
         
         pygame.display.flip()
-        #we get the deltha time in miliseconds.
         
     pygame.quit()
 
