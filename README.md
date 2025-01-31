@@ -2,7 +2,7 @@
 
 This is a simple implementation of the classic Asteroids game using the Pygame library.
 
-![Asteroids Game](asteroids.png)
+![Asteroids Game](asteroids.gif)
 
 ## Installation
 
@@ -27,7 +27,7 @@ This is a simple implementation of the classic Asteroids game using the Pygame l
 
 To start the game, run the `main.py` file:
 ```sh
-python main.py
+python3 main.py
 ```
 
 ## Controls

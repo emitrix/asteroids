@@ -15,6 +15,7 @@ def main():
     pygame.init()
     fpsClock = pygame.time.Clock()
     dt = 0
+    game_score = 0
     print (f"Screen width: {SCREEN_WIDTH}")
     print (f"Screen height: {SCREEN_HEIGHT}")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -42,12 +43,14 @@ def main():
             if asteroid.collide(player_one) :
                 print ("Player hit")
                 print ("Game over!")
+                print ("Score: ", game_score)
                 running = False
                 break
             for shoot in shoots:
                 if asteroid.collide(shoot) :
                     asteroid.split()
                     shoot.kill()
+                    game_score += 50
             
         screen.fill(COLOR_BLACK)
         
